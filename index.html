@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Squad Lounge | Cafe & PlayStation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --forest:#12372a;
+  --forest-dark:#071d16;
+  --forest-mid:#1b4a38;
+  --cream:#f4eedf;
+  --gold:#d8b56a;
+  --gold-light:#f1d99b;
+  --muted:#b8c4bd;
+  --glass:rgba(11,35,27,.78);
+  --line:rgba(216,181,106,.25);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Arial,sans-serif;color:var(--cream);
+  background:var(--forest-dark);line-height:1.6;overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    linear-gradient(rgba(5,25,19,.72),rgba(5,25,19,.92)),
+    url("background.jpg") center/cover fixed no-repeat;
+}
+body:after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle at 50% 0%,rgba(216,181,106,.12),transparent 42%);
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+.section{padding:90px 0}
+.eyebrow{text-transform:uppercase;letter-spacing:3px;color:var(--gold);font-size:.75rem;font-weight:800}
+h1,h2{font-family:Orbitron,Inter,sans-serif}
+.section-head{text-align:center;margin-bottom:42px}
+.section-head h2{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin-top:9px}
+.section-head p{color:var(--muted);max-width:650px;margin:14px auto}
+nav{
+ position:fixed;top:0;left:0;right:0;z-index:50;
+ background:rgba(5,25,19,.82);backdrop-filter:blur(18px);
+ border-bottom:1px solid var(--line);
+}
+.nav-inner{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800}
+.brand img{width:45px;height:45px;object-fit:contain;border-radius:11px;background:#fff}
+.brand span{font-family:Orbitron,sans-serif;letter-spacing:1px}
+.nav-links{display:flex;gap:25px;color:#ddd;font-size:.9rem}
+.nav-links a:hover{color:var(--gold-light)}
+.nav-btn{
+ padding:10px 17px;border:1px solid var(--gold);border-radius:12px;
+ color:var(--cream);font-weight:800;background:rgba(216,181,106,.08)
+}
+.nav-btn:hover{background:var(--gold);color:var(--forest-dark)}
+.hero{min-height:100svh;display:flex;align-items:center;padding:120px 0 65px}
+.hero-content{max-width:800px}
+.hero h1{font-size:clamp(3.2rem,8vw,6.5rem);line-height:.94;letter-spacing:-3px}
+.hero h1 span{color:var(--gold)}
+.hero p{color:#c7d0cb;font-size:1.1rem;max-width:650px;margin:25px 0 30px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+ display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;
+ border-radius:13px;font-weight:800;transition:.25s;border:1px solid transparent
+}
+.btn-primary{background:var(--gold);color:var(--forest-dark)}
+.btn-primary:hover{transform:translateY(-2px);background:var(--gold-light)}
+.btn-ghost{border-color:var(--line);background:rgba(255,255,255,.04)}
+.btn-ghost:hover{background:rgba(216,181,106,.1)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+ padding:28px;border:1px solid var(--line);border-radius:22px;
+ background:linear-gradient(145deg,rgba(27,74,56,.6),rgba(7,29,22,.75));
+ box-shadow:0 20px 55px rgba(0,0,0,.3)
+}
+.icon{
+ width:48px;height:48px;display:grid;place-items:center;border-radius:14px;
+ background:rgba(216,181,106,.1);font-size:1.4rem;margin-bottom:18px
+}
+.card h3{margin-bottom:8px}.card p{color:var(--muted);font-size:.93rem}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.gallery-item{overflow:hidden;border-radius:18px;border:1px solid var(--line);aspect-ratio:1;background:#092219}
+.gallery-item:nth-child(1),.gallery-item:nth-child(4){grid-column:span 2;aspect-ratio:2/1}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:.45s}
+.gallery-item:hover img{transform:scale(1.05)}
+.socials{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.social{
+ padding:13px 20px;border:1px solid var(--line);border-radius:13px;
+ background:rgba(27,74,56,.45);font-weight:800
+}
+.social:hover{background:rgba(216,181,106,.12);color:var(--gold-light)}
+.location-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:20px}
+.location-card,.map-card{
+ border:1px solid var(--line);border-radius:22px;overflow:hidden;
+ background:var(--glass);box-shadow:0 20px 55px rgba(0,0,0,.3)
+}
+.location-card{padding:28px}.location-card h3{font-family:Orbitron;margin-bottom:10px}
+.location-card p{color:var(--muted);margin-bottom:18px}
+.location-line{padding:13px 0;border-bottom:1px solid var(--line);color:#ddd}
+.location-line:last-child{border:0}
+.map-card iframe{width:100%;height:100%;min-height:360px;display:block}
+footer{padding:35px 0;border-top:1px solid var(--line);text-align:center;color:#89988f;font-size:.83rem}
+@media(max-width:850px){
+ .nav-links{display:none}.cards,.location-grid{grid-template-columns:1fr}
+ .hero{text-align:center}.hero-content{margin:auto}.actions{justify-content:center}
+ .gallery{grid-template-columns:repeat(2,1fr)}
+ .gallery-item:nth-child(1),.gallery-item:nth-child(4){grid-column:span 2}
+}
+@media(max-width:520px){
+ .section{padding:70px 0}.brand span{font-size:.82rem}.nav-btn{padding:9px 12px;font-size:.78rem}
+}
+</style>
+
+</head><body>
+<nav>
+<div class="container nav-inner">
+<a class="brand" href="index.html"><img src="logo.jpg" alt="Squad Lounge"><span>SQUAD LOUNGE</span></a>
+<div class="nav-links">
+<a href="index.html#about">About</a><a href="index.html#gallery">Gallery</a><a href="index.html#location">Location</a>
+</div>
+<a class="nav-btn" href="menu.html">View Menu</a>
+</div>
+</nav>
+
+<section class="hero"><div class="container hero-content">
+<div class="eyebrow">Cafe • PlayStation • Lounge</div>
+<h1>PLAY.<br><span>CHILL.</span><br>REPEAT.</h1>
+<p>Welcome to Squad Lounge — a place for PlayStation sessions, good drinks, competitive matches and unforgettable time with your squad.</p>
+<div class="actions"><a class="btn btn-primary" href="menu.html">☕ Order Online</a><a class="btn btn-ghost" href="#location">📍 Find Us</a></div>
+</div></section>
+
+<section class="section" id="about"><div class="container">
+<div class="section-head"><div class="eyebrow">Squad Lounge</div><h2>Where The Squad Comes Together</h2><p>Play your favorite games, grab a drink and enjoy the night.</p></div>
+<div class="cards">
+
+
+<section class="section" id="gallery"><div class="container">
+<div class="gallery">
+<div class="gallery-item"><img src="image1.jfif" alt="Squad Lounge 1"></div>
+<div class="gallery-item"><img src="image2.jfif" alt="Squad Lounge 2"></div>
+<div class="gallery-item"><img src="image3.jfif" alt="Squad Lounge 3"></div>
+<div class="gallery-item"><img src="image4.jfif" alt="Squad Lounge 4"></div>
+<div class="gallery-item"><img src="image5.jfif" alt="Squad Lounge 5"></div>
+<div class="gallery-item"><img src="image6.jfif" alt="Squad Lounge 6"></div>
+<div class="gallery-item"><img src="image7.jfif" alt="Squad Lounge 7"></div>
+</div></div></section>
+
+</div></div></section>
+<section class="section" id="location"><div class="container">
+<div class="section-head"><div class="eyebrow">Visit Us</div><h2>Find Squad Lounge</h2></div>
+<div class="location-grid">
+<div class="location-card"><h3>Squad Lounge</h3><p>Ready for your next match? Find us on the map and come hang out.</p>
+<div class="location-line">📍 Squad Lounge</div><div class="location-line">🎮 Cafe & PlayStation</div>
+</div>
+<div class="map-card"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3433.7025990740167!2d32.2997896!3d30.614150700000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f859004362e97b%3A0xd493044da487f877!2sSquad!5e0!3m2!1sen!2seg!4v1789133631526!5m2!1sen!2seg" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+<div class="actions" style="margin-top:20px"><a class="btn btn-primary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Squad">Open Google Maps</a></div>
+</div></div></section>
+
+<section class="section"><div class="container"><div class="section-head"><div class="eyebrow">Follow Us</div><h2>Social Media</h2></div>
+<div class="socials">
+<a class="social" target="_blank" href="https://www.tiktok.com/@squad.lounge">TikTok</a>
+<a class="social" target="_blank" href="https://www.instagram.com/squadlounge.eg/">Instagram</a>
+<a class="social" target="_blank" href="https://www.facebook.com/profile.php?id=61591347083718">Facebook</a>
+</div></div></section>
+<footer>© <span id="year"></span> Squad Lounge. Cafe & PlayStation.</footer>
+<script>document.getElementById("year").textContent=new Date().getFullYear()</script>
+</body></html>

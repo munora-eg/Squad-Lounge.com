@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Squad Lounge | Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --forest:#12372a;
+  --forest-dark:#071d16;
+  --forest-mid:#1b4a38;
+  --cream:#f4eedf;
+  --gold:#d8b56a;
+  --gold-light:#f1d99b;
+  --muted:#b8c4bd;
+  --glass:rgba(11,35,27,.78);
+  --line:rgba(216,181,106,.25);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Arial,sans-serif;color:var(--cream);
+  background:var(--forest-dark);line-height:1.6;overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    linear-gradient(rgba(5,25,19,.72),rgba(5,25,19,.92)),
+    url("background.jpg") center/cover fixed no-repeat;
+}
+body:after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle at 50% 0%,rgba(216,181,106,.12),transparent 42%);
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+.section{padding:90px 0}
+.eyebrow{text-transform:uppercase;letter-spacing:3px;color:var(--gold);font-size:.75rem;font-weight:800}
+h1,h2{font-family:Orbitron,Inter,sans-serif}
+.section-head{text-align:center;margin-bottom:42px}
+.section-head h2{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin-top:9px}
+.section-head p{color:var(--muted);max-width:650px;margin:14px auto}
+nav{
+ position:fixed;top:0;left:0;right:0;z-index:50;
+ background:rgba(5,25,19,.82);backdrop-filter:blur(18px);
+ border-bottom:1px solid var(--line);
+}
+.nav-inner{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800}
+.brand img{width:45px;height:45px;object-fit:contain;border-radius:11px;background:#fff}
+.brand span{font-family:Orbitron,sans-serif;letter-spacing:1px}
+.nav-links{display:flex;gap:25px;color:#ddd;font-size:.9rem}
+.nav-links a:hover{color:var(--gold-light)}
+.nav-btn{
+ padding:10px 17px;border:1px solid var(--gold);border-radius:12px;
+ color:var(--cream);font-weight:800;background:rgba(216,181,106,.08)
+}
+.nav-btn:hover{background:var(--gold);color:var(--forest-dark)}
+.hero{min-height:100svh;display:flex;align-items:center;padding:120px 0 65px}
+.hero-content{max-width:800px}
+.hero h1{font-size:clamp(3.2rem,8vw,6.5rem);line-height:.94;letter-spacing:-3px}
+.hero h1 span{color:var(--gold)}
+.hero p{color:#c7d0cb;font-size:1.1rem;max-width:650px;margin:25px 0 30px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+ display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;
+ border-radius:13px;font-weight:800;transition:.25s;border:1px solid transparent
+}
+.btn-primary{background:var(--gold);color:var(--forest-dark)}
+.btn-primary:hover{transform:translateY(-2px);background:var(--gold-light)}
+.btn-ghost{border-color:var(--line);background:rgba(255,255,255,.04)}
+.btn-ghost:hover{background:rgba(216,181,106,.1)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+ padding:28px;border:1px solid var(--line);border-radius:22px;
+ background:linear-gradient(145deg,rgba(27,74,56,.6),rgba(7,29,22,.75));
+ box-shadow:0 20px 55px rgba(0,0,0,.3)
+}
+.icon{
+ width:48px;height:48px;display:grid;place-items:center;border-radius:14px;
+ background:rgba(216,181,106,.1);font-size:1.4rem;margin-bottom:18px
+}
+.card h3{margin-bottom:8px}.card p{color:var(--muted);font-size:.93rem}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.gallery-item{overflow:hidden;border-radius:18px;border:1px solid var(--line);aspect-ratio:1;background:#092219}
+.gallery-item:nth-child(1),.gallery-item:nth-child(4){grid-column:span 2;aspect-ratio:2/1}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:.45s}
+.gallery-item:hover img{transform:scale(1.05)}
+.socials{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.social{
+ padding:13px 20px;border:1px solid var(--line);border-radius:13px;
+ background:rgba(27,74,56,.45);font-weight:800
+}
+.social:hover{background:rgba(216,181,106,.12);color:var(--gold-light)}
+.location-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:20px}
+.location-card,.map-card{
+ border:1px solid var(--line);border-radius:22px;overflow:hidden;
+ background:var(--glass);box-shadow:0 20px 55px rgba(0,0,0,.3)
+}
+.location-card{padding:28px}.location-card h3{font-family:Orbitron;margin-bottom:10px}
+.location-card p{color:var(--muted);margin-bottom:18px}
+.location-line{padding:13px 0;border-bottom:1px solid var(--line);color:#ddd}
+.location-line:last-child{border:0}
+.map-card iframe{width:100%;height:100%;min-height:360px;display:block}
+footer{padding:35px 0;border-top:1px solid var(--line);text-align:center;color:#89988f;font-size:.83rem}
+@media(max-width:850px){
+ .nav-links{display:none}.cards,.location-grid{grid-template-columns:1fr}
+ .hero{text-align:center}.hero-content{margin:auto}.actions{justify-content:center}
+ .gallery{grid-template-columns:repeat(2,1fr)}
+ .gallery-item:nth-child(1),.gallery-item:nth-child(4){grid-column:span 2}
+}
+@media(max-width:520px){
+ .section{padding:70px 0}.brand span{font-size:.82rem}.nav-btn{padding:9px 12px;font-size:.78rem}
+}
+</style>
+
+<style>
+.menu-page{padding:125px 0 80px;min-height:100svh}
+.menu-wrap{max-width:820px;margin:auto;border:1px solid var(--line);border-radius:24px;background:var(--glass);padding:12px;box-shadow:0 25px 70px rgba(0,0,0,.35)}
+.menu-item{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:22px 18px;border-bottom:1px solid var(--line)}
+.menu-item:last-child{border-bottom:0}
+.menu-info{display:flex;align-items:center;gap:14px}.menu-icon{width:50px;height:50px;border-radius:14px;background:rgba(216,181,106,.1);display:grid;place-items:center;font-size:1.35rem}
+.menu-info h3{margin-bottom:2px}.menu-info p{font-size:.8rem;color:var(--muted)}
+.menu-right{display:flex;align-items:center;gap:14px}.price{font-weight:800;color:var(--gold-light);white-space:nowrap}
+.add-btn{border:0;background:var(--gold);color:var(--forest-dark);border-radius:11px;padding:10px 14px;font-weight:900;cursor:pointer}
+.cart-bar{margin-top:12px;padding:17px;border:1px solid var(--line);border-radius:17px;background:rgba(216,181,106,.06);display:flex;justify-content:space-between;align-items:center;gap:15px}
+.cart-total{color:var(--gold-light);font-weight:800}
+.modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;background:rgba(2,15,11,.78);backdrop-filter:blur(8px);padding:18px}
+.modal.active{display:grid}.modal-box{width:min(550px,100%);max-height:90vh;overflow:auto;background:#0b2119;border:1px solid var(--line);border-radius:24px;padding:27px;box-shadow:0 30px 90px rgba(0,0,0,.6)}
+.modal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.modal-top h2{font-size:1.35rem}
+.close{width:40px;height:40px;border:1px solid var(--line);background:transparent;color:#fff;border-radius:11px;font-size:1.2rem;cursor:pointer}
+.cart-row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-size:.92rem}.cart-empty{color:var(--muted);padding:15px 0}
+.total-row{display:flex;justify-content:space-between;font-size:1.1rem;font-weight:900;padding:18px 0}
+.form-grid{display:grid;gap:12px}label{font-size:.8rem;color:#c9d1cc}input{width:100%;margin-top:6px;padding:13px;background:#06160f;border:1px solid var(--line);color:#fff;border-radius:11px;outline:0}input:focus{border-color:var(--gold)}
+.checkout{width:100%;border:0;margin-top:15px;background:#25D366;color:#06160d;padding:15px;border-radius:12px;font-weight:900;cursor:pointer}
+.notice{text-align:center;color:#8e9c94;font-size:.75rem;margin-top:10px}
+@media(max-width:520px){.menu-item{align-items:flex-start}.menu-right{flex-direction:column;align-items:flex-end;gap:7px}.cart-bar{flex-direction:column;align-items:stretch}.cart-bar .btn{width:100%}}
+</style></head><body>
+<nav>
+<div class="container nav-inner">
+<a class="brand" href="index.html"><img src="logo.jpg" alt="Squad Lounge"><span>SQUAD LOUNGE</span></a>
+<div class="nav-links">
+<a href="index.html#about">About</a><a href="index.html#gallery">Gallery</a><a href="index.html#location">Location</a>
+</div>
+<a class="nav-btn" href="menu.html">View Menu</a>
+</div>
+</nav>
+
+<main class="menu-page"><div class="container">
+<div class="section-head"><div class="eyebrow">Squad Lounge</div><h2>Quick Menu</h2><p>Choose your drinks, add them to your cart, then send your order directly to WhatsApp.</p></div>
+<div class="menu-wrap">
+<div class="menu-item"><div class="menu-info"><div class="menu-icon">🍵</div><div><h3>Tea</h3><p>Fresh hot tea</p></div></div><div class="menu-right"><span class="price">10 EGP</span><button class="add-btn" onclick="addToCart('Tea',10)">Add</button></div></div>
+<div class="menu-item"><div class="menu-info"><div class="menu-icon">🥤</div><div><h3>Pepsi</h3><p>Cold Pepsi</p></div></div><div class="menu-right"><span class="price">30 EGP</span><button class="add-btn" onclick="addToCart('Pepsi',30)">Add</button></div></div>
+<div class="cart-bar"><div><b id="cartCount">0 items</b><div class="cart-total" id="cartTotal">Total: 0 EGP</div></div><button class="btn btn-primary" onclick="openCart()">🛒 Cart / Checkout</button></div>
+</div></div></main>
+
+<div class="modal" id="cartModal"><div class="modal-box">
+<div class="modal-top"><h2>Your Order</h2><button class="close" onclick="closeCart()">×</button></div>
+<div id="cartList"></div><div class="total-row"><span>Total</span><span id="modalTotal">0 EGP</span></div>
+<div class="form-grid">
+<div><label>Your Name</label><input id="customerName" type="text" placeholder="Enter your name"></div>
+<div><label>Phone Number</label><input id="customerPhone" type="tel" placeholder="Enter your phone number"></div>
+<div><label>Room Number</label><input id="roomNumber" type="text" placeholder="Example: 5"></div>
+</div>
+<button class="checkout" onclick="sendWhatsAppOrder()">Send Order on WhatsApp</button>
+<div class="notice">The order message will open in WhatsApp ready to send.</div>
+</div></div>
+
+<script>
+const WHATSAPP_NUMBER="201024896013";
+let cart=[];
+function addToCart(name,price){let x=cart.find(i=>i.name===name);x?x.qty++:cart.push({name,price,qty:1});updateCart()}
+function updateCart(){
+ let count=cart.reduce((s,i)=>s+i.qty,0),total=cart.reduce((s,i)=>s+i.price*i.qty,0);
+ document.getElementById("cartCount").textContent=count+(count===1?" item":" items");
+ document.getElementById("cartTotal").textContent="Total: "+total+" EGP";
+ document.getElementById("modalTotal").textContent=total+" EGP";
+ document.getElementById("cartList").innerHTML=cart.length?cart.map(i=>`<div class="cart-row"><span>${i.name} × ${i.qty}</span><b>${i.price*i.qty} EGP</b></div>`).join(""):'<div class="cart-empty">Your cart is empty.</div>';
+}
+function openCart(){updateCart();document.getElementById("cartModal").classList.add("active");document.body.style.overflow="hidden"}
+function closeCart(){document.getElementById("cartModal").classList.remove("active");document.body.style.overflow=""}
+function sendWhatsAppOrder(){
+ if(!cart.length){alert("Add an item first.");return}
+ let name=document.getElementById("customerName").value.trim(),phone=document.getElementById("customerPhone").value.trim(),room=document.getElementById("roomNumber").value.trim();
+ if(!name||!phone||!room){alert("Please enter your name, phone number and room number.");return}
+ let total=cart.reduce((s,i)=>s+i.price*i.qty,0);
+ let items=cart.map(i=>`• ${i.name} x${i.qty} = ${i.price*i.qty} EGP`).join("\n");
+ let msg=`🎮 *New Squad Lounge Order*%0A%0A👤 Name: ${encodeURIComponent(name)}%0A📱 Phone: ${encodeURIComponent(phone)}%0A🚪 Room: ${encodeURIComponent(room)}%0A%0A🛒 *Order:*%0A${encodeURIComponent(items)}%0A%0A💰 *Total: ${total} EGP*`;
+ window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`,"_blank");
+}
+document.getElementById("cartModal").addEventListener("click",e=>{if(e.target.id==="cartModal")closeCart()});
+updateCart();
+</script></body></html>
