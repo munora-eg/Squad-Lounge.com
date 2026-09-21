@@ -1,193 +1,108 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Squad Lounge | Menu</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-:root{
-  --forest:#12372a;
-  --forest-dark:#071d16;
-  --forest-mid:#1b4a38;
-  --cream:#f4eedf;
-  --gold:#d8b56a;
-  --gold-light:#f1d99b;
-  --muted:#b8c4bd;
-  --glass:rgba(11,35,27,.78);
-  --line:rgba(216,181,106,.25);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:Inter,Arial,sans-serif;color:var(--cream);
-  background:var(--forest-dark);line-height:1.6;overflow-x:hidden;
-}
-body:before{
-  content:"";position:fixed;inset:0;z-index:-2;
-  background:
-    linear-gradient(rgba(5,25,19,.72),rgba(5,25,19,.92)),
-    url("background.jpg") center/cover fixed no-repeat;
-}
-body:after{
-  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background:radial-gradient(circle at 50% 0%,rgba(216,181,106,.12),transparent 42%);
-}
-a{text-decoration:none;color:inherit}
-.container{width:min(1120px,92%);margin:auto}
-.section{padding:90px 0}
-.eyebrow{text-transform:uppercase;letter-spacing:3px;color:var(--gold);font-size:.75rem;font-weight:800}
-h1,h2{font-family:Orbitron,Inter,sans-serif}
-.section-head{text-align:center;margin-bottom:42px}
-.section-head h2{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin-top:9px}
-.section-head p{color:var(--muted);max-width:650px;margin:14px auto}
-nav{
- position:fixed;top:0;left:0;right:0;z-index:50;
- background:rgba(5,25,19,.82);backdrop-filter:blur(18px);
- border-bottom:1px solid var(--line);
-}
-.nav-inner{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:11px;font-weight:800}
-.brand img{width:45px;height:45px;object-fit:contain;border-radius:11px;background:#fff}
-.brand span{font-family:Orbitron,sans-serif;letter-spacing:1px}
-.nav-links{display:flex;gap:25px;color:#ddd;font-size:.9rem}
-.nav-links a:hover{color:var(--gold-light)}
-.nav-btn{
- padding:10px 17px;border:1px solid var(--gold);border-radius:12px;
- color:var(--cream);font-weight:800;background:rgba(216,181,106,.08)
-}
-.nav-btn:hover{background:var(--gold);color:var(--forest-dark)}
-.hero{min-height:100svh;display:flex;align-items:center;padding:120px 0 65px}
-.hero-content{max-width:800px}
-.hero h1{font-size:clamp(3.2rem,8vw,6.5rem);line-height:.94;letter-spacing:-3px}
-.hero h1 span{color:var(--gold)}
-.hero p{color:#c7d0cb;font-size:1.1rem;max-width:650px;margin:25px 0 30px}
-.actions{display:flex;flex-wrap:wrap;gap:12px}
-.btn{
- display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;
- border-radius:13px;font-weight:800;transition:.25s;border:1px solid transparent
-}
-.btn-primary{background:var(--gold);color:var(--forest-dark)}
-.btn-primary:hover{transform:translateY(-2px);background:var(--gold-light)}
-.btn-ghost{border-color:var(--line);background:rgba(255,255,255,.04)}
-.btn-ghost:hover{background:rgba(216,181,106,.1)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{
- padding:28px;border:1px solid var(--line);border-radius:22px;
- background:linear-gradient(145deg,rgba(27,74,56,.6),rgba(7,29,22,.75));
- box-shadow:0 20px 55px rgba(0,0,0,.3)
-}
-.icon{
- width:48px;height:48px;display:grid;place-items:center;border-radius:14px;
- background:rgba(216,181,106,.1);font-size:1.4rem;margin-bottom:18px
-}
-.card h3{margin-bottom:8px}.card p{color:var(--muted);font-size:.93rem}
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
-.gallery-item{overflow:hidden;border-radius:18px;border:1px solid var(--line);aspect-ratio:1;background:#092219}
-.gallery-item:nth-child(1),.gallery-item:nth-child(4){grid-column:span 2;aspect-ratio:2/1}
-.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:.45s}
-.gallery-item:hover img{transform:scale(1.05)}
-.socials{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
-.social{
- padding:13px 20px;border:1px solid var(--line);border-radius:13px;
- background:rgba(27,74,56,.45);font-weight:800
-}
-.social:hover{background:rgba(216,181,106,.12);color:var(--gold-light)}
-.location-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:20px}
-.location-card,.map-card{
- border:1px solid var(--line);border-radius:22px;overflow:hidden;
- background:var(--glass);box-shadow:0 20px 55px rgba(0,0,0,.3)
-}
-.location-card{padding:28px}.location-card h3{font-family:Orbitron;margin-bottom:10px}
-.location-card p{color:var(--muted);margin-bottom:18px}
-.location-line{padding:13px 0;border-bottom:1px solid var(--line);color:#ddd}
-.location-line:last-child{border:0}
-.map-card iframe{width:100%;height:100%;min-height:360px;display:block}
-footer{padding:35px 0;border-top:1px solid var(--line);text-align:center;color:#89988f;font-size:.83rem}
-@media(max-width:850px){
- .nav-links{display:none}.cards,.location-grid{grid-template-columns:1fr}
- .hero{text-align:center}.hero-content{margin:auto}.actions{justify-content:center}
- .gallery{grid-template-columns:repeat(2,1fr)}
- .gallery-item:nth-child(1),.gallery-item:nth-child(4){grid-column:span 2}
-}
-@media(max-width:520px){
- .section{padding:70px 0}.brand span{font-size:.82rem}.nav-btn{padding:9px 12px;font-size:.78rem}
-}
+:root{--green:#173f2c;--green2:#0b2419;--cream:#edf0d8;--gold:#c9a85b;--line:rgba(201,168,91,.3);--muted:#aeb9ae;--card:rgba(13,39,28,.88)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,Arial,sans-serif;color:#f3f0df;background:var(--green2);line-height:1.5;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(rgba(5,24,16,.82),rgba(5,24,16,.94)),url("background.jpg") center/cover fixed no-repeat}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 50% 0%,rgba(201,168,91,.13),transparent 42%)}
+a{text-decoration:none;color:inherit}.container{width:min(1120px,92%);margin:auto}
+nav{position:sticky;top:0;z-index:100;background:rgba(5,24,16,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:10px;font-weight:800}.brand img{width:43px;height:43px;object-fit:contain;border-radius:10px;background:#fff}.brand span{font-family:Orbitron;font-size:.9rem;letter-spacing:1px}.nav-links{display:flex;align-items:center;gap:22px;color:#ddd;font-size:.88rem}.nav-links a:hover{color:#e6ce8f}
+.cart-btn{position:relative;border:1px solid var(--line);background:rgba(201,168,91,.1);color:#fff;border-radius:12px;padding:10px 13px;font-weight:800;cursor:pointer;min-width:48px}.cart-btn:hover{background:rgba(201,168,91,.2)}.cart-count{position:absolute;right:-7px;top:-8px;min-width:21px;height:21px;padding:0 5px;border-radius:99px;background:#d9bd78;color:#10251a;font-size:11px;display:grid;place-items:center;font-weight:900}
+.hero{padding:90px 0 35px;text-align:center}.eyebrow{text-transform:uppercase;letter-spacing:3px;color:#d7bb76;font-size:.72rem;font-weight:900}.hero h1{font-family:Orbitron;font-size:clamp(2.7rem,8vw,5rem);line-height:1;margin:9px 0}.hero h1 span{color:#d7bb76}.hero p{color:var(--muted);max-width:650px;margin:auto}
+.menu-section{padding:38px 0}.section-title{display:flex;align-items:center;gap:14px;margin:0 0 18px}.section-title h2{font-family:Orbitron;font-size:1.35rem;white-space:nowrap}.section-title:after{content:"";height:1px;background:var(--line);flex:1}.section-title .coffee{font-size:1.4rem}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.item{border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,rgba(27,74,56,.6),rgba(7,29,22,.9));padding:15px;display:flex;justify-content:space-between;gap:12px;min-width:0}.item-info{min-width:0}.item h3{font-size:.96rem;margin-bottom:2px}.item p{font-size:.75rem;color:#94a59a}.price{font-weight:900;color:#e2ca88;white-space:nowrap}.item-right{display:flex;align-items:center;gap:9px}.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:rgba(0,0,0,.16)}.qty button{width:34px;height:34px;border:0;background:transparent;color:#f3f0df;font-size:20px;cursor:pointer}.qty button:hover{background:rgba(201,168,91,.18)}.qty span{min-width:29px;text-align:center;font-weight:900;font-size:.85rem}.unavailable{opacity:.52}.unavailable .qty{display:none}
+.size-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.size-item{border:1px solid var(--line);border-radius:14px;padding:12px;background:rgba(27,74,56,.38)}.size-item h3{font-size:.85rem;margin-bottom:8px}.size-line{display:flex;align-items:center;justify-content:space-between;gap:7px;padding:7px 0;border-top:1px dotted rgba(201,168,91,.25);font-size:.76rem}.size-line:first-child{border-top:0}.size-line b{color:#e2ca88;white-space:nowrap}.size-line .smallqty{margin-left:auto}.smallqty{display:flex;align-items:center;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:rgba(0,0,0,.12)}.smallqty button{width:30px;height:30px;border:0;background:transparent;color:#fff;font-size:18px;cursor:pointer}.smallqty button:hover{background:rgba(201,168,91,.18)}.smallqty span{min-width:25px;text-align:center;font-size:.78rem;font-weight:900}
+.sticky-cart{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:90;width:min(620px,92%);padding:10px;border:1px solid var(--line);background:rgba(8,28,20,.96);backdrop-filter:blur(15px);border-radius:17px;box-shadow:0 18px 55px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:space-between;gap:12px}.sticky-cart strong{display:block}.sticky-total{color:#e2ca88;font-weight:900;font-size:.85rem}.view-cart{border:0;background:#d7bb76;color:#10251a;padding:12px 16px;border-radius:11px;font-weight:900;cursor:pointer}.view-cart:hover{background:#ebd391}
+.modal{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.72);backdrop-filter:blur(7px);display:none;align-items:flex-end;justify-content:center;padding:15px}.modal.active{display:flex}.modal-box{width:min(600px,100%);max-height:88vh;overflow:auto;background:#0b2118;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 30px 80px rgba(0,0,0,.65)}.modal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.modal-top h2{font-family:Orbitron;font-size:1.3rem}.close{width:40px;height:40px;border:1px solid var(--line);background:transparent;color:#fff;border-radius:10px;font-size:1.35rem;cursor:pointer}.cart-row{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(201,168,91,.18)}.cart-name{font-weight:700}.cart-price{color:#e2ca88;font-weight:800;white-space:nowrap}.cart-remove{border:0;background:transparent;color:#9ba89f;cursor:pointer;font-size:.75rem}.empty{text-align:center;color:var(--muted);padding:28px 0}.total-row{display:flex;justify-content:space-between;font-size:1.12rem;font-weight:900;padding:18px 0}.total-row span:last-child{color:#e2ca88}.form-grid{display:grid;gap:10px}label{font-size:.78rem;color:#c8d0c9}input{width:100%;margin-top:5px;padding:13px 12px;background:#06160f;border:1px solid var(--line);color:#fff;border-radius:10px;outline:0;font-size:16px}input:focus{border-color:#d7bb76}.checkout{width:100%;margin-top:13px;padding:15px;border:0;border-radius:12px;background:#25d366;color:#052012;font-weight:900;font-size:1rem;cursor:pointer}.notice{text-align:center;color:#7f9186;font-size:.72rem;margin-top:9px}
+footer{padding:80px 0 110px;text-align:center;color:#7e8f84;font-size:.8rem}
+@media(max-width:800px){.nav-links{display:none}.grid{grid-template-columns:1fr}.size-grid{grid-template-columns:repeat(2,1fr)}.hero{padding-top:55px}.item{padding:13px}.item-right{flex-direction:column;align-items:flex-end}.price{font-size:.85rem}}
+@media(max-width:480px){.brand span{font-size:.76rem}.brand img{width:38px;height:38px}.size-grid{grid-template-columns:1fr}.section-title h2{font-size:1.1rem}.sticky-cart{bottom:10px}.modal{padding:8px}.modal-box{border-radius:18px;padding:17px}.cart-row{grid-template-columns:1fr auto}.cart-row .cart-price{grid-column:2}.cart-row .cart-remove{grid-column:1/3;text-align:left}.item h3{font-size:.9rem}}
 </style>
-
-<style>
-.menu-page{padding:125px 0 80px;min-height:100svh}
-.menu-wrap{max-width:820px;margin:auto;border:1px solid var(--line);border-radius:24px;background:var(--glass);padding:12px;box-shadow:0 25px 70px rgba(0,0,0,.35)}
-.menu-item{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:22px 18px;border-bottom:1px solid var(--line)}
-.menu-item:last-child{border-bottom:0}
-.menu-info{display:flex;align-items:center;gap:14px}.menu-icon{width:50px;height:50px;border-radius:14px;background:rgba(216,181,106,.1);display:grid;place-items:center;font-size:1.35rem}
-.menu-info h3{margin-bottom:2px}.menu-info p{font-size:.8rem;color:var(--muted)}
-.menu-right{display:flex;align-items:center;gap:14px}.price{font-weight:800;color:var(--gold-light);white-space:nowrap}
-.add-btn{border:0;background:var(--gold);color:var(--forest-dark);border-radius:11px;padding:10px 14px;font-weight:900;cursor:pointer}
-.cart-bar{margin-top:12px;padding:17px;border:1px solid var(--line);border-radius:17px;background:rgba(216,181,106,.06);display:flex;justify-content:space-between;align-items:center;gap:15px}
-.cart-total{color:var(--gold-light);font-weight:800}
-.modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;background:rgba(2,15,11,.78);backdrop-filter:blur(8px);padding:18px}
-.modal.active{display:grid}.modal-box{width:min(550px,100%);max-height:90vh;overflow:auto;background:#0b2119;border:1px solid var(--line);border-radius:24px;padding:27px;box-shadow:0 30px 90px rgba(0,0,0,.6)}
-.modal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.modal-top h2{font-size:1.35rem}
-.close{width:40px;height:40px;border:1px solid var(--line);background:transparent;color:#fff;border-radius:11px;font-size:1.2rem;cursor:pointer}
-.cart-row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-size:.92rem}.cart-empty{color:var(--muted);padding:15px 0}
-.total-row{display:flex;justify-content:space-between;font-size:1.1rem;font-weight:900;padding:18px 0}
-.form-grid{display:grid;gap:12px}label{font-size:.8rem;color:#c9d1cc}input{width:100%;margin-top:6px;padding:13px;background:#06160f;border:1px solid var(--line);color:#fff;border-radius:11px;outline:0}input:focus{border-color:var(--gold)}
-.checkout{width:100%;border:0;margin-top:15px;background:#25D366;color:#06160d;padding:15px;border-radius:12px;font-weight:900;cursor:pointer}
-.notice{text-align:center;color:#8e9c94;font-size:.75rem;margin-top:10px}
-@media(max-width:520px){.menu-item{align-items:flex-start}.menu-right{flex-direction:column;align-items:flex-end;gap:7px}.cart-bar{flex-direction:column;align-items:stretch}.cart-bar .btn{width:100%}}
-</style></head><body>
-<nav>
-<div class="container nav-inner">
+</head>
+<body>
+<nav><div class="container nav-inner">
 <a class="brand" href="index.html"><img src="logo.jpg" alt="Squad Lounge"><span>SQUAD LOUNGE</span></a>
-<div class="nav-links">
-<a href="index.html#about">About</a><a href="index.html#gallery">Gallery</a><a href="index.html#location">Location</a>
-</div>
-<a class="nav-btn" href="menu.html">View Menu</a>
-</div>
-</nav>
+<div class="nav-links"><a href="index.html">Home</a><a href="#menu">Menu</a></div>
+<button class="cart-btn" onclick="openCart()" aria-label="Open cart">🛒<span class="cart-count" id="navCount">0</span></button>
+</div></nav>
 
-<main class="menu-page"><div class="container">
-<div class="section-head"><div class="eyebrow">Squad Lounge</div><h2>Quick Menu</h2><p>Choose your drinks, add them to your cart, then send your order directly to WhatsApp.</p></div>
-<div class="menu-wrap">
-<div class="menu-item"><div class="menu-info"><div class="menu-icon">🍵</div><div><h3>Tea</h3><p>Fresh hot tea</p></div></div><div class="menu-right"><span class="price">10 EGP</span><button class="add-btn" onclick="addToCart('Tea',10)">Add</button></div></div>
-<div class="menu-item"><div class="menu-info"><div class="menu-icon">🥤</div><div><h3>Pepsi</h3><p>Cold Pepsi</p></div></div><div class="menu-right"><span class="price">30 EGP</span><button class="add-btn" onclick="addToCart('Pepsi',30)">Add</button></div></div>
-<div class="cart-bar"><div><b id="cartCount">0 items</b><div class="cart-total" id="cartTotal">Total: 0 EGP</div></div><button class="btn btn-primary" onclick="openCart()">🛒 Cart / Checkout</button></div>
-</div></div></main>
+<header class="hero container" id="menu"><div class="eyebrow">Squad Lounge</div><h1>QUICK <span>MENU</span></h1></header>
+<main class="container">
 
-<div class="modal" id="cartModal"><div class="modal-box">
-<div class="modal-top"><h2>Your Order</h2><button class="close" onclick="closeCart()">×</button></div>
-<div id="cartList"></div><div class="total-row"><span>Total</span><span id="modalTotal">0 EGP</span></div>
-<div class="form-grid">
-<div><label>Your Name</label><input id="customerName" type="text" placeholder="Enter your name"></div>
-<div><label>Phone Number</label><input id="customerPhone" type="tel" placeholder="Enter your phone number"></div>
-<div><label>Room Number</label><input id="roomNumber" type="text" placeholder="Example: 5"></div>
+<section class="menu-section"><div class="section-title"><span class="coffee">☕</span><h2>COFFEE CLASSICS</h2></div>
+<div class="size-grid">
+<div class="size-item"><h3>Espresso</h3>
+<div class="size-line"><span>Single</span><b>60 EGP</b><div class="smallqty"><button onclick="changeItem('Espresso - Single',60,-1,'EspressoSingle')">−</button><span id="q-EspressoSingle">0</span><button onclick="changeItem('Espresso - Single',60,1,'EspressoSingle')">+</button></div></div>
+<div class="size-line"><span>Double</span><b>70 EGP</b><div class="smallqty"><button onclick="changeItem('Espresso - Double',70,-1,'EspressoDouble')">−</button><span id="q-EspressoDouble">0</span><button onclick="changeItem('Espresso - Double',70,1,'EspressoDouble')">+</button></div></div>
 </div>
-<button class="checkout" onclick="sendWhatsAppOrder()">Send Order on WhatsApp</button>
-<div class="notice">The order message will open in WhatsApp ready to send.</div>
-</div></div>
+<div class="size-item"><h3>Macchiato</h3>
+<div class="size-line"><span>Single</span><b>60 EGP</b><div class="smallqty"><button onclick="changeItem('Macchiato - Single',60,-1,'MacchiatoSingle')">−</button><span id="q-MacchiatoSingle">0</span><button onclick="changeItem('Macchiato - Single',60,1,'MacchiatoSingle')">+</button></div></div>
+<div class="size-line"><span>Double</span><b>75 EGP</b><div class="smallqty"><button onclick="changeItem('Macchiato - Double',75,-1,'MacchiatoDouble')">−</button><span id="q-MacchiatoDouble">0</span><button onclick="changeItem('Macchiato - Double',75,1,'MacchiatoDouble')">+</button></div></div>
+</div>
+<div class="size-item"><h3>Flat White</h3>
+<div class="size-line"><span>Medium</span><b>80 EGP</b><div class="smallqty"><button onclick="changeItem('Flat White - Medium',80,-1,'FlatWhiteMedium')">−</button><span id="q-FlatWhiteMedium">0</span><button onclick="changeItem('Flat White - Medium',80,1,'FlatWhiteMedium')">+</button></div></div>
+</div>
+<div class="size-item"><h3>Cortado</h3>
+<div class="size-line"><span>Medium</span><b>80 EGP</b><div class="smallqty"><button onclick="changeItem('Cortado - Medium',80,-1,'CortadoMedium')">−</button><span id="q-CortadoMedium">0</span><button onclick="changeItem('Cortado - Medium',80,1,'CortadoMedium')">+</button></div></div>
+</div>
+</div>
+<div class="grid" style="margin-top:13px">
+<div class="item"><div class="item-info"><h3>Piccolo</h3><p>70 EGP</p></div><div class="item-right"><span class="price">70 EGP</span><div class="qty"><button onclick="changeItem('Piccolo',70,-1)">−</button><span data-q="Piccolo">0</span><button onclick="changeItem('Piccolo',70,1)">+</button></div></div></div>
+<div class="item"><div class="item-info"><h3>Latte</h3><p>Choose Medium or Large</p></div><div class="item-right"><div class="qty"><button onclick="changeItem('Latte - Medium',80,-1)">−</button><span data-q="Latte - Medium">0</span><button onclick="changeItem('Latte - Medium',80,1)">+</button></div><div class="qty"><button onclick="changeItem('Latte - Large',95,-1)">−</button><span data-q="Latte - Large">0</span><button onclick="changeItem('Latte - Large',95,1)">+</button></div></div></div>
+<div class="item"><div class="item-info"><h3>Cappuccino</h3><p>Choose Medium or Large</p></div><div class="item-right"><div class="qty"><button onclick="changeItem('Cappuccino - Medium',75,-1)">−</button><span data-q="Cappuccino - Medium">0</span><button onclick="changeItem('Cappuccino - Medium',75,1)">+</button></div><div class="qty"><button onclick="changeItem('Cappuccino - Large',80,-1)">−</button><span data-q="Cappuccino - Large">0</span><button onclick="changeItem('Cappuccino - Large',80,1)">+</button></div></div></div>
+<div class="item"><div class="item-info"><h3>Americano</h3><p>Choose Medium or Large</p></div><div class="item-right"><div class="qty"><button onclick="changeItem('Americano - Medium',75,-1)">−</button><span data-q="Americano - Medium">0</span><button onclick="changeItem('Americano - Medium',75,1)">+</button></div><div class="qty"><button onclick="changeItem('Americano - Large',85,-1)">−</button><span data-q="Americano - Large">0</span><button onclick="changeItem('Americano - Large',85,1)">+</button></div></div></div>
+<div class="item"><div class="item-info"><h3>Turkish Coffee</h3><p>Choose Single or Double</p></div><div class="item-right"><div class="qty"><button onclick="changeItem('Turkish Coffee - Single',60,-1)">−</button><span data-q="Turkish Coffee - Single">0</span><button onclick="changeItem('Turkish Coffee - Single',60,1)">+</button></div><div class="qty"><button onclick="changeItem('Turkish Coffee - Double',75,-1)">−</button><span data-q="Turkish Coffee - Double">0</span><button onclick="changeItem('Turkish Coffee - Double',75,1)">+</button></div></div></div>
+<div class="item"><div class="item-info"><h3>French Coffee</h3><p>Choose Single or Double</p></div><div class="item-right"><div class="qty"><button onclick="changeItem('French Coffee - Single',70,-1)">−</button><span data-q="French Coffee - Single">0</span><button onclick="changeItem('French Coffee - Single',70,1)">+</button></div><div class="qty"><button onclick="changeItem('French Coffee - Double',80,-1)">−</button><span data-q="French Coffee - Double">0</span><button onclick="changeItem('French Coffee - Double',80,1)">+</button></div></div></div>
+<div class="item"><div class="item-info"><h3>Hazelnut Coffee</h3><p>Choose Single or Double</p></div><div class="item-right"><div class="qty"><button onclick="changeItem('Hazelnut Coffee - Single',70,-1)">−</button><span data-q="Hazelnut Coffee - Single">0</span><button onclick="changeItem('Hazelnut Coffee - Single',70,1)">+</button></div><div class="qty"><button onclick="changeItem('Hazelnut Coffee - Double',80,-1)">−</button><span data-q="Hazelnut Coffee - Double">0</span><button onclick="changeItem('Hazelnut Coffee - Double',80,1)">+</button></div></div></div>
+</div></section>
 
 <script>
-const WHATSAPP_NUMBER="201024896013";
-let cart=[];
-function addToCart(name,price){let x=cart.find(i=>i.name===name);x?x.qty++:cart.push({name,price,qty:1});updateCart()}
-function updateCart(){
- let count=cart.reduce((s,i)=>s+i.qty,0),total=cart.reduce((s,i)=>s+i.price*i.qty,0);
- document.getElementById("cartCount").textContent=count+(count===1?" item":" items");
- document.getElementById("cartTotal").textContent="Total: "+total+" EGP";
- document.getElementById("modalTotal").textContent=total+" EGP";
- document.getElementById("cartList").innerHTML=cart.length?cart.map(i=>`<div class="cart-row"><span>${i.name} × ${i.qty}</span><b>${i.price*i.qty} EGP</b></div>`).join(""):'<div class="cart-empty">Your cart is empty.</div>';
-}
-function openCart(){updateCart();document.getElementById("cartModal").classList.add("active");document.body.style.overflow="hidden"}
-function closeCart(){document.getElementById("cartModal").classList.remove("active");document.body.style.overflow=""}
-function sendWhatsAppOrder(){
- if(!cart.length){alert("Add an item first.");return}
- let name=document.getElementById("customerName").value.trim(),phone=document.getElementById("customerPhone").value.trim(),room=document.getElementById("roomNumber").value.trim();
- if(!name||!phone||!room){alert("Please enter your name, phone number and room number.");return}
- let total=cart.reduce((s,i)=>s+i.price*i.qty,0);
- let items=cart.map(i=>`• ${i.name} x${i.qty} = ${i.price*i.qty} EGP`).join("\n");
- let msg=`🎮 *New Squad Lounge Order*%0A%0A👤 Name: ${encodeURIComponent(name)}%0A📱 Phone: ${encodeURIComponent(phone)}%0A🚪 Room: ${encodeURIComponent(room)}%0A%0A🛒 *Order:*%0A${encodeURIComponent(items)}%0A%0A💰 *Total: ${total} EGP*`;
- window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`,"_blank");
-}
-document.getElementById("cartModal").addEventListener("click",e=>{if(e.target.id==="cartModal")closeCart()});
-updateCart();
-</script></body></html>
+const sections = [
+['HOT SPECIALTIES',['Dark Mocha|110','White Mocha|110','Spanish Latte|110','Caramel Macchiato|100','Salted Caramel Latte|100']],
+['ICED COFFEE',['Iced Shaken White Mocha|120','Iced Latte|90','Iced Americano|85','Iced Spanish Latte|120','Iced Caramel Macchiato|120','Iced Salted Caramel|120','Iced Dark Mocha|120','Iced White Mocha|120']],
+['FRAPPES',['Classic Frappe|110','Caramel Frappe|120','Salted Caramel Frappe|120','Mocha Frappe (Dark)|120','Mocha Frappe (White)|120']],
+['MATCHA',['Iced Matcha Latte|-','Strawberry Matcha Cloud|-','Iced Matcha Coconut|-','Affogato Matcha|-']],
+['SIGNATURE',['Pink Lemonade|125','Chocolate Coconut Latte|110','Cookie Shake|130','Strawberry Delight Shake|120']],
+['NON-COFFEE',['Hot Chocolate|75','Hot Chocolate + Marshmallow|85','Hot Chocolate + Oreo|85','Tea|30','Hot Cider (Apple)|65','Hot Cider (Pineapple)|65','Tea Latte|45']],
+['MILKSHAKES',['Classic Shake|110','Caramel|110','Cheesecake|-','Oreo|110','Fruity Shake|110','Pistachio|120','Lotus|120']],
+['ICED TEA',['Peach|80','Strawberry|80','Passion Fruit|80','Any Flavor|80']],
+['SQUAD SPECIALTIES',['Pink Lemonade|125','Chocolate Coconut Latte|110','Cookie Shake|130','Strawberry Delight Shake|120']],
+['SMOOTHIES',['Strawberry|120','Blueberry|120','Mango|120','Peach|120','Passion Fruit|120']],
+['FRESH DRINKS',['Mango|75','Strawberry|75','Lemon Mint|75']],
+['MOJITOS',['Mojito|75','Blue Island|75','Pink Pine|75','Lemon Berry|75','Kiwi Lagoon|75','Green Squeeze|75','Red Bull|95','Red Bull Mix|110','Water|10']],
+['BAKERY',['Chocolate Cake|-','Pain Suisse Crème Brûlée|-','Croissant Cigar Nutella|-','Mini Pancakes|-','Red Velvet|-','Cookies|-','Doughnut|-','Tiramisu|-','Honey Cake|-','Cheesecake|-']],
+['CROISSANTS',['Plain Croissant|80','Croissant Sandwich (Beef)|120','Croissant Sandwich (Turkey)|120']],
+['SANDWICHES',['Panouzzo|130','Ciabatta Sandwich (Beef)|120','Ciabatta Sandwich (Turkey)|120']],
+['EXTRAS',['Extra Shot|25','Extra Flavor|25','Sauce (Nutella)|25','Sauce (Lotus)|25','Sauce (Caramel)|25','Sauce (Pistachio)|25','Boba|-','Whipped Cream|25','Vegan Milk (Almond)|30','Vegan Milk (Coconut)|30']]
+];
+function slug(s){return s.replace(/[^a-zA-Z0-9]+/g,'_')}
+function renderSections(){let html='';for(const [title,items] of sections){html+=`<section class="menu-section"><div class="section-title"><span class="coffee">${title==='MOJITOS'?'🍹':title==='BAKERY'||title==='CROISSANTS'?'🥐':title==='SANDWICHES'?'🥪':title==='EXTRAS'?'☕':'☕'}</span><h2>${title}</h2></div><div class="grid">`;for(const raw of items){const [name,pRaw]=raw.split('|');const price=pRaw==='-'?0:Number(pRaw);const id=slug(name);const safe=name.replace(/'/g,"\'");html+=`<div class="item"><div class="item-info"><h3>${name}</h3><p>${price} EGP</p></div><div class="item-right"><span class="price">${price} EGP</span><div class="qty"><button onclick="changeItem('${safe}',${price},-1,'${id}')">−</button><span data-q="${name}">0</span><button onclick="changeItem('${safe}',${price},1,'${id}')">+</button></div></div></div>`}html+='</div></section>'}document.getElementById('generatedMenu').innerHTML=html}
+</script>
+<div id="generatedMenu"></div>
+</main>
+
+<div class="sticky-cart"><div><strong id="stickyCount">0 items</strong><div class="sticky-total" id="stickyTotal">Total: 0 EGP</div></div><button class="view-cart" onclick="openCart()">🛒 View Cart</button></div>
+
+<div class="modal" id="cartModal"><div class="modal-box"><div class="modal-top"><h2>Your Order</h2><button class="close" onclick="closeCart()">×</button></div><div id="cartList"></div><div class="total-row"><span>Total</span><span id="modalTotal">0 EGP</span></div><div class="form-grid"><div><label>Your Name</label><input id="customerName" placeholder="Enter your name"></div><div><label>Phone Number</label><input id="customerPhone" type="tel" placeholder="Enter your phone number"></div><div><label>Room Number</label><input id="roomNumber" placeholder="Example: 5"></div></div><button class="checkout" onclick="sendWhatsAppOrder()">Checkout via WhatsApp</button><div class="notice">Your order will open in WhatsApp ready to send.</div></div></div>
+<footer>GOOD COFFEE · GOOD MOOD · GOOD SQUAD</footer>
+<script>
+const WHATSAPP_NUMBER='201024896013';let cart=[];
+function keyName(name){return name}
+function changeItem(name,price,delta,id){let item=cart.find(x=>x.name===name);if(!item&&delta>0){item={name,price,qty:0};cart.push(item)}if(item){item.qty=Math.max(0,item.qty+delta);if(item.qty===0)cart=cart.filter(x=>x!==item)}updateCart()}
+function getQty(name){let x=cart.find(i=>i.name===name);return x?x.qty:0}
+function updateCart(){const count=cart.reduce((s,i)=>s+i.qty,0),total=cart.reduce((s,i)=>s+i.price*i.qty,0);document.getElementById('navCount').textContent=count;document.getElementById('stickyCount').textContent=count+(count===1?' item':' items');document.getElementById('stickyTotal').textContent='Total: '+total+' EGP';document.getElementById('modalTotal').textContent=total+' EGP';document.querySelectorAll('[data-q]').forEach(el=>el.textContent=getQty(el.getAttribute('data-q')));document.querySelectorAll('[id^="q-"]').forEach(el=>{const map={'EspressoSingle':'Espresso - Single','EspressoDouble':'Espresso - Double','MacchiatoSingle':'Macchiato - Single','MacchiatoDouble':'Macchiato - Double','FlatWhiteMedium':'Flat White - Medium','CortadoMedium':'Cortado - Medium'};el.textContent=getQty(map[el.id.slice(2)]||'')});renderCart()}
+function renderCart(){const box=document.getElementById('cartList');if(!cart.length){box.innerHTML='<div class="empty">Your cart is empty.<br>Add something using +.</div>';return}box.innerHTML=cart.map((i,idx)=>`<div class="cart-row"><div class="cart-name">${i.name}<br><small style="color:#8fa096">Qty: ${i.qty}</small></div><div class="qty"><button onclick="changeItem('${i.name.replace(/'/g,"\\'")}',${i.price},-1)">−</button><span>${i.qty}</span><button onclick="changeItem('${i.name.replace(/'/g,"\\'")}',${i.price},1)">+</button></div><span class="cart-price">${i.price*i.qty} EGP</span><button class="cart-remove" onclick="removeItem(${idx})">Remove</button></div>`).join('')}
+function removeItem(idx){cart.splice(idx,1);updateCart()}
+function openCart(){updateCart();document.getElementById('cartModal').classList.add('active');document.body.style.overflow='hidden'}function closeCart(){document.getElementById('cartModal').classList.remove('active');document.body.style.overflow=''}
+function sendWhatsAppOrder(){if(!cart.length){alert('Your cart is empty.');return}const name=document.getElementById('customerName').value.trim(),phone=document.getElementById('customerPhone').value.trim(),room=document.getElementById('roomNumber').value.trim();if(!name||!phone||!room){alert('Please enter your name, phone number and room number.');return}const total=cart.reduce((s,i)=>s+i.price*i.qty,0);const lines=cart.map(i=>`• ${i.name} x${i.qty} = ${i.price*i.qty} EGP`).join('\n');const text=`🎮 New Squad Lounge Order\n\n👤 Name: ${name}\n📱 Phone: ${phone}\n🚪 Room: ${room}\n\n🛒 Order:\n${lines}\n\n💰 Total: ${total} EGP`;window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`,'_blank')}
+document.getElementById('cartModal').addEventListener('click',e=>{if(e.target.id==='cartModal')closeCart()});renderSections();updateCart();
+</script>
+</body></html>
